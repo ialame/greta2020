@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bonjour ProduitController!{% endblock %}
+
+{% block body %}
+    {% for produit in X  %}
+        <h2><span style="text-transform: capitalize">{{ produit.nom }}</span>
+            <span style="float: right;">
+                Prix :
+                {{ produit.prix }}€</span>
+        </h2>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ produit.description | raw }}
+            </div>
+            <div class="col-sm-6">
+                <img src="{{ produit.image }}" width="380"
+                     style="margin-bottom: 50px;right: 0px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="{{ path('produit',{'id':produit.id }) }}" class="btn btn-success">
+                    Details !
+                </a>
+
+                <span style="float: right;">
+                             <button type="button"> Acheter </button>
+
+                            </span>
+            </div>
+        </div>
+
+        <hr style="border-color: #cc2255">
+    {% endfor %}
+
+{% endblock %}
